@@ -1,0 +1,24 @@
+services:
+  openclaw-gateway:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-gateway
+    environment:
+      - NODE_ENV=production
+      - OPENCLAW_GATEWAY_TOKEN=${OPENCLAW_GATEWAY_TOKEN}
+      - OPENCLAW_GATEWAY_MODE=${OPENCLAW_GATEWAY_MODE}
+      - OPENCLAW_WORKSPACE_DIR=/home/node/workspace
+    volumes:
+      - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
+      - ${OPENCLAW_WORKSPACE_DIR}:/home/node/workspace
+    ports:
+      - "${OPENCLAW_GATEWAY_PORT}:18789"
+    restart: unless-stopped
+    command: [
+        "node",
+        "dist/index.js",
+        "gateway",
+        "--allow-unconfigured",
+        "--bind", "lan",
+        "--port", "18789",
+        "--token", "${OPENCLAW_GATEWAY_TOKEN}"
+      ]
