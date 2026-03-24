@@ -1,0 +1,14 @@
+// 파일명을 openclaw.json으로 변경한 후, 최초 컨테이너를 띄우기 전에 미리 config 폴더 하위에 복사/붙여넣기 하세요.
+// 그리고 이 코멘트는 삭제하세요.
+{
+  "gateway": {
+	  "mode": "local",
+	  "bind": "loopback",
+	  "controlUi": {
+		  "allowedOrigins": [
+			"http://localhost:3000",
+			"http://127.0.0.1:3000"
+		  ]
+	  }
+  }
+}
