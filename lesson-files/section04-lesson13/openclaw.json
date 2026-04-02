@@ -25,7 +25,7 @@
       "models": {
         "google/gemini-2.5-flash": {}
       },
-      "workspace": "/home/node/.openclaw/workspace"
+      "workspace": "/home/node/workspace"
     }
   },
   "tools": {
